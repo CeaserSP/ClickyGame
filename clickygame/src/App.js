@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Alert from "./components/alert";
+import Alert from "./components/wrap";
+import Alert from "./components/score";
+import Alert from "./components/imgCard";
 import './App.css';
 
 class App extends Component {
