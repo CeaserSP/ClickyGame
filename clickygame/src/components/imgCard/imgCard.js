@@ -1,5 +1,5 @@
 import React from "react";
-import "./CharCard.css";
+import "./imgCard.css";
 
 const imgCard = ({ id, name, image, handlePicked }) => (
     <div>
