@@ -11,7 +11,7 @@ class App extends Component {
     cards,
     score: 0
   };
-
-};
+  // Calculate score and check if topscore should be updated and get allert end of game
+ 
 
 export default App;
