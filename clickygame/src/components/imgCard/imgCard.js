@@ -1,18 +1,12 @@
 import React from "react";
 import "./imgCard.css";
 
-const imgCard = ({ id, name, image, handlePicked }) => (
-    <div>
-        <div
-            className="card"
-            key={id}
-            data-id={id}
-            name={name}
-            style={{ backgroundImage: `url(${image})` }}
-            onClick={handlePicked}
-        >
+const imgCard = props => (
+    <div className="card" onClick={() => props.clickCount(props.id)}>
+        <div className="img-container">
+            <img alt={props.name} src={props.image} />
         </div>
     </div>
-)
+);
 
 export default imgCard;
