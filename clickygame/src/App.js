@@ -21,13 +21,14 @@ class App extends Component {
     this.state.cards.forEach(card => {
       card.count = 0;
     });
-    alert(`Game Over :( \nscore: ${this.state.score}`);
+    alert(`Game Over! Your score: ${this.state.score}`);
     this.setState({score: 0});
     return true;
   }
+// count clicks get card. if card is click add 1 to its count then randomize position. else return gameOver()
 
 
-  
+
 };
 
 export default App;
