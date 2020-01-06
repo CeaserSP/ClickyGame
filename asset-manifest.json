@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.0ad1447c.chunk.css",
-    "main.js": "/static/js/main.2d1eaeef.chunk.js",
-    "main.js.map": "/static/js/main.2d1eaeef.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.81a35a37.js",
-    "runtime-main.js.map": "/static/js/runtime-main.81a35a37.js.map",
-    "static/js/2.e0865fc2.chunk.js": "/static/js/2.e0865fc2.chunk.js",
-    "static/js/2.e0865fc2.chunk.js.map": "/static/js/2.e0865fc2.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.959b9b8c45793ec1db1f4eecd59e8260.js": "/precache-manifest.959b9b8c45793ec1db1f4eecd59e8260.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.0ad1447c.chunk.css.map": "/static/css/main.0ad1447c.chunk.css.map",
-    "static/js/2.e0865fc2.chunk.js.LICENSE": "/static/js/2.e0865fc2.chunk.js.LICENSE",
-    "static/media/quinn.jpg": "/static/media/quinn.1af2a7a1.jpg"
+    "main.css": "./static/css/main.0ad1447c.chunk.css",
+    "main.js": "./static/js/main.2d1eaeef.chunk.js",
+    "main.js.map": "./static/js/main.2d1eaeef.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.337c567e.js",
+    "runtime-main.js.map": "./static/js/runtime-main.337c567e.js.map",
+    "static/js/2.e0865fc2.chunk.js": "./static/js/2.e0865fc2.chunk.js",
+    "static/js/2.e0865fc2.chunk.js.map": "./static/js/2.e0865fc2.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.c3b9ef345a7fa8c961400919eecfcd4a.js": "./precache-manifest.c3b9ef345a7fa8c961400919eecfcd4a.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.0ad1447c.chunk.css.map": "./static/css/main.0ad1447c.chunk.css.map",
+    "static/js/2.e0865fc2.chunk.js.LICENSE": "./static/js/2.e0865fc2.chunk.js.LICENSE",
+    "static/media/quinn.jpg": "./static/media/quinn.1af2a7a1.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.81a35a37.js",
+    "static/js/runtime-main.337c567e.js",
     "static/js/2.e0865fc2.chunk.js",
     "static/css/main.0ad1447c.chunk.css",
     "static/js/main.2d1eaeef.chunk.js"
