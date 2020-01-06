@@ -15,28 +15,25 @@ class App extends Component {
     alert: ""
   };
 
-  handlePicked = event => {
-    // document.getElementById('foo').addEventListener('keyup', e => {
-    //   let val = e.target.value.toLowerCase();
-    const id = this.state.cards.find(item => item.id);
-  // });
-    console.log(id)
-    this.shuffleTeam()
-    this.checkGuess(id, this.updateTopScore)
+  handlePicked =  (id) => {
+    const idC = id;
+    console.log(idC);
+    this.shuffleTeam();
+    this.checkGuess(idC, this.updateTopScore);
   }
 
   shuffleTeam = () => {
-    this.setState(this.state.cards = this.shuffleArray(this.state.cards))
+    this.setState(this.state.cards = this.shuffleArray(this.state.cards));
   }
 
-  checkGuess = (id, cb) => {
+  checkGuess = (idC, cb) => {
     const newState = { ...this.state };
-    if (newState.pickedCards.includes(id)) {
+    if (newState.pickedCards.includes(idC)) {
       newState.alert = `YOU ALREADY PICKED HIM!`
       newState.pickedCards = []
       this.setState(this.state = newState)
     } else {
-      newState.pickedCards.push(id)
+      newState.pickedCards.push(idC)
       newState.alert = `GOOD CHOICE!`
       this.setState(this.state = newState)
     }
@@ -44,9 +41,10 @@ class App extends Component {
   }
 
   updateTopScore = (newState, cb) => {
-    if (newState.pickedCards.length > newState.topScore) {
-      newState.topScore++
+    if (newState.pickedCards.length > newState.topscore) {
+      newState.topscore++
       this.setState(this.state = newState)
+      // console.log(newState.topscore);
     }
     cb(newState)
   }

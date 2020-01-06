@@ -2,9 +2,9 @@ import React from "react";
 import "./Card.css";
 
 const Card = props => (
-    <div className="card" onClick={() => props.handlePicked(props.id)}>
+    <div className="card" onClick={() => props.handlePicked(props.id, props.value)}>
         <div className="img-container">
-            <img alt={props.name} src={props.image} />
+            <img alt={props.id} src={props.image} />
         </div>
     </div>
 );
