@@ -1,59 +1,87 @@
 import React, { Component } from 'react';
 import Wrap from "./components/wrap";
 import Score from "./components/score";
-import imgCard from "./components/imgCard";
+import Card from "./components/Card";
 import cards from "./card.json";
 import './App.css';
 
 class App extends Component {
 
   state = {
-    cards,
-    score: 0
+    cards: cards,
+    pickedCards:[],
+    score: 0,
+    topscore: 0,
+    alert: ""
   };
-  // Calculate score and check if topscore should be updated and get allert end of game
-  gameOver = () => {
-    if (this.state.score > this.state.topscore) {
-      this.setState({ topscore: this.state.score }, function () {
-        console.log(this.state.highscore);
-      });
+
+  handlePicked = event => {
+    // document.getElementById('foo').addEventListener('keyup', e => {
+    //   let val = e.target.value.toLowerCase();
+    const id = this.state.cards.find(item => item.id);
+  // });
+    console.log(id)
+    this.shuffleTeam()
+    this.checkGuess(id, this.updateTopScore)
+  }
+
+  shuffleTeam = () => {
+    this.setState(this.state.cards = this.shuffleArray(this.state.cards))
+  }
+
+  checkGuess = (id, cb) => {
+    const newState = { ...this.state };
+    if (newState.pickedCards.includes(id)) {
+      newState.alert = `YOU ALREADY PICKED HIM!`
+      newState.pickedCards = []
+      this.setState(this.state = newState)
+    } else {
+      newState.pickedCards.push(id)
+      newState.alert = `GOOD CHOICE!`
+      this.setState(this.state = newState)
     }
-    this.state.cards.forEach(card => {
-      card.count = 0;
-    });
-    alert(`Game Over! Your score: ${this.state.score}`);
-    this.setState({ score: 0 });
-    return true;
+    cb(newState, this.alertChamp)
   }
-  // count clicks get card. if card is click add 1 to its count then randomize position. else return gameOver()
-  countClick = id => {
-    this.state.cards.find((c, i) => {
-      if (c.id === id) {
-        if (cards[i].count === 0) {
-          cards[i].count = cards[i].count + 1;
-          this.setState({ score: this.state.score + 1 }, function () {
-            console.log(this.state.score);
-          });
-          this.state.cards.sort(() => Math.random() - 0.5)
-          return true;
-        } else {
-          this.gameOver();
-        }
-      }
-    });
+
+  updateTopScore = (newState, cb) => {
+    if (newState.pickedCards.length > newState.topScore) {
+      newState.topScore++
+      this.setState(this.state = newState)
+    }
+    cb(newState)
   }
+
+  alertChamp = (newState) => {
+    if (newState.pickedCards.length === 9) {
+      newState.alert = "CHAMPION!";
+      newState.pickedCards = [];
+      this.setState(this.state = newState)
+    }
+  }
+  shuffleArray = (a) => {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
+  }
+  
 
   // Map over this.state.cards and render a cardCard component for each card object
   render() {
     return (
       <Wrap>
-        <Score score={this.state.score} highscore={this.state.highscore}>Clicky Game</Score>
+        <Score score={this.state.pickedCards.length} topscore={this.state.topscore}>Clicky Game</Score>
         {this.state.cards.map(card => (
-          <imgCard
-            countClick={this.countClick}
+          <Card
+            // countClick={this.countClick}
             id={card.id}
             key={card.id}
             image={require("./image/" + card.image)}
+            handlePicked={this.handlePicked}
           />
         ))}
       </Wrap>
